@@ -1,0 +1,949 @@
+/* UPI Registration Tutorial — layout aligned to design mockups */
+
+@keyframes utGradientShift {
+  0% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 40%;
+  }
+}
+
+@keyframes utFloatOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.98);
+  }
+}
+
+.utPage {
+  position: relative;
+  overflow-x: clip;
+  min-height: 100vh;
+  padding: 12px 16px 48px;
+  background: linear-gradient(125deg, #dbeafe 0%, #e0f2fe 25%, #f0f9ff 50%, #eff6ff 75%, #ffffff 100%);
+  background-size: 200% 200%;
+  animation: utGradientShift 18s ease-in-out infinite;
+  color: #0f172a;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .utPage {
+    animation: none;
+    background-size: auto;
+  }
+
+  .utOrb {
+    animation: none !important;
+  }
+}
+
+.utBgOrbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.utOrb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.45;
+  animation: utFloatOrb 14s ease-in-out infinite;
+}
+
+.utOrb1 {
+  width: min(420px, 55vw);
+  height: min(420px, 55vw);
+  top: -8%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, transparent 70%);
+}
+
+.utOrb2 {
+  width: min(380px, 50vw);
+  height: min(380px, 50vw);
+  bottom: 5%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.4) 0%, transparent 70%);
+  animation-delay: -4s;
+}
+
+.utOrb3 {
+  width: min(280px, 40vw);
+  height: min(280px, 40vw);
+  top: 40%;
+  left: 35%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.35) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+.utTopBar {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 8px;
+}
+
+.utBackLink {
+  font-weight: 800;
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.72);
+  text-decoration: none;
+}
+
+.utBackLink:hover {
+  color: #1d4ed8;
+}
+
+.utHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.utBrand {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 950;
+  color: #0c1e3c;
+  letter-spacing: -0.02em;
+}
+
+.utModuleSub {
+  margin: 6px 0 0;
+  font-size: 15px;
+  font-weight: 650;
+  color: #64748b;
+}
+
+.utSandboxBanner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: #fff9e6;
+  border: 1px solid #e6d08a;
+  box-shadow: 0 2px 12px rgba(234, 179, 8, 0.08);
+}
+
+.utSandboxIcon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(251, 191, 36, 0.25);
+  color: #b45309;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.utSandboxText {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
+  color: #334155;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.utWarnDot {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #fb923c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.utProgressRow {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.utStepLabel {
+  font-size: 13px;
+  font-weight: 750;
+  color: #64748b;
+}
+
+.utPercent {
+  font-size: 13px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.utStepDots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.utDot {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 900;
+  border: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.utDotTodo {
+  background: #e2e8f0;
+  color: #94a3b8;
+  border-color: #cbd5e1;
+}
+
+.utDotDone {
+  background: #22c55e;
+  color: #fff;
+  border-color: #16a34a;
+}
+
+.utDotCurrent {
+  background: #2563eb;
+  color: #fff;
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2);
+}
+
+.utToolbar {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.utPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-weight: 750;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.utPillBtn:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.utColumns {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .utColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.utGuideCard {
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px 20px 24px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.utGuideCard:hover {
+  box-shadow: 0 18px 48px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .utGuideCard {
+    transition: none;
+  }
+
+  .utGuideCard:hover {
+    transform: none;
+  }
+}
+
+.utMascot {
+  width: min(230px, 78%);
+  height: 275px;
+  border-radius: 0;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: transparent !important;
+  overflow: visible;
+}
+
+.utMascot--info {
+  background: transparent !important;
+}
+
+.utMascot--success {
+  background: transparent !important;
+}
+
+.utMascotLabel {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.45);
+  text-align: center;
+  padding: 0 12px;
+}
+
+.utBubble {
+  position: relative;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  border: 1px solid;
+}
+
+.utBubble::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.utBubble--info {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.utBubble--info::before {
+  border-bottom-color: #bfdbfe;
+}
+
+.utBubble--success {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.utBubble--success::before {
+  border-bottom-color: #86efac;
+}
+
+.utBubbleMain {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.utBubbleMain p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+  color: #1e293b;
+}
+
+.utShieldMini {
+  flex: 0 0 auto;
+  color: #2563eb;
+  margin-top: 2px;
+}
+
+.utCheckMini {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  margin-top: 0;
+}
+
+.utBubbleRule {
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  margin: 12px 0 10px;
+}
+
+.utBubbleTip {
+  margin: 0;
+  font-size: 13px;
+  color: #475569;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.utBulb {
+  flex: 0 0 auto;
+}
+
+.utPhoneWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.utPhone {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 36px;
+  padding: 12px;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.utPhoneInner {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.utPhoneBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.utPhoneIcons {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.utScreen {
+  flex: 1;
+  padding: 8px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.utScreenScroll {
+  max-height: 380px;
+  overflow-y: auto;
+  padding-bottom: 4px;
+}
+
+.utScreenTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #0c1e3c;
+}
+
+.utScreenSub {
+  margin: -4px 0 4px;
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.utBankList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.utBankRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.utBankRow--sel {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.utBankIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.utBankName {
+  font-weight: 850;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.utBankCheck {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.utToastOk {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #047857;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.utField {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.utField--focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.utField--ok {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.utFieldIcon {
+  width: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.utFieldPhone .utFieldIconPhone {
+  background: #ecfdf5;
+  color: #16a34a;
+}
+
+.utFieldPin.utField--ok .utFieldIconLock,
+.utFieldPin.utField--focus .utFieldIconLock {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.utFieldBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+}
+
+.utFieldLbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.utFieldInput {
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  outline: none;
+  width: 100%;
+}
+
+.utFieldInput::placeholder {
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.utMono {
+  letter-spacing: 0.15em;
+}
+
+.utFieldCheck {
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.utEye {
+  align-self: center;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.utInlineOk {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+.utTipBox {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  font-size: 12px;
+  font-weight: 650;
+  color: #1d4ed8;
+  line-height: 1.45;
+}
+
+.utPhoneNav {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.utNavBtn {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 850;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.utNavBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.utNavBtn--ghost {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.utNavBtn--primary {
+  background: linear-gradient(180deg, #1e40af 0%, #1d4ed8 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
+}
+
+.utNavBtn--block {
+  flex: none;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.utVerifyBox {
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.utDetailCard {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+.utDIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.utDIcon--blue {
+  background: #2563eb;
+}
+
+.utDIcon--purple {
+  background: #9333ea;
+}
+
+.utDIcon--green {
+  background: #16a34a;
+}
+
+.utDLbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.utDVal {
+  font-size: 14px;
+  font-weight: 850;
+  color: #0f172a;
+}
+
+.utVerifyQ {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 750;
+  margin: 4px 0 0;
+  color: #334155;
+}
+
+.utYesNo {
+  display: flex;
+  gap: 10px;
+}
+
+.utYn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: 850;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+}
+
+.utYn--yesOn {
+  border-color: #22c55e;
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.utStrengthRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -4px;
+}
+
+.utStrengthBar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.utStrengthBar--on {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.utStrongLbl {
+  font-size: 12px;
+  font-weight: 900;
+  color: #16a34a;
+}
+
+.utWeakLbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.utScreen--celebrate {
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.utBigSuccess {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+  display: grid;
+  place-items: center;
+  margin: 8px auto 10px;
+  box-shadow: 0 0 0 12px rgba(34, 197, 94, 0.2), 0 12px 28px rgba(22, 163, 74, 0.35);
+}
+
+.utBigCheck {
+  color: #fff;
+}
+
+.utSpark {
+  position: absolute;
+  color: #facc15;
+  font-size: 14px;
+  top: 12px;
+  right: 8px;
+}
+
+.utSpark2 {
+  left: 6px;
+  right: auto;
+  bottom: 18px;
+  top: auto;
+}
+
+.utDoneTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 950;
+  color: #0c1e3c;
+}
+
+.utDoneSub {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.utStatusCard {
+  width: 100%;
+  text-align: left;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.utStatusRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.utSLbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.utSVal {
+  font-size: 14px;
+  font-weight: 850;
+  color: #0f172a;
+}
+
+.utSVal--green {
+  color: #15803d;
+}
+
+.utBannerBlue {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #1e40af;
+  line-height: 1.4;
+  text-align: left;
+}
+
+html[lang="hi"] .utPage,
+html[lang="hi"] .utPhoneInner {
+  font-family: "Noto Sans Devanagari", system-ui, sans-serif;
+}

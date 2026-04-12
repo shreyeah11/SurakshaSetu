@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#eff6ff"/>
+  <rect x="24" y="26" width="272" height="128" rx="14" fill="#dbeafe"/>
+  <rect x="46" y="54" width="228" height="74" rx="10" fill="#fff"/>
+  <text x="58" y="78" font-size="12" fill="#334155" font-family="Arial">https://amazon.com/account</text>
+  <text x="58" y="102" font-size="12" fill="#dc2626" font-family="Arial">http://amaz0n-secure.tk/verify</text>
+  <rect x="210" y="40" width="64" height="24" rx="12" fill="#1d4ed8"/>
+  <text x="222" y="56" font-size="12" fill="#fff" font-family="Arial">URL</text>
+</svg>

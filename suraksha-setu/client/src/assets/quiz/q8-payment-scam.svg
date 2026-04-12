@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#eef2ff"/>
+  <rect x="24" y="24" width="272" height="132" rx="14" fill="#e0e7ff"/>
+  <rect x="48" y="46" width="224" height="88" rx="12" fill="#fff"/>
+  <rect x="62" y="64" width="76" height="50" rx="10" fill="#c7d2fe"/>
+  <text x="72" y="93" font-size="14" fill="#1e3a8a" font-family="Arial">$</text>
+  <text x="150" y="82" font-size="12" fill="#334155" font-family="Arial">Unlock account</text>
+  <text x="150" y="102" font-size="12" fill="#dc2626" font-family="Arial">Send card details</text>
+  <circle cx="258" cy="60" r="10" fill="#ef4444"/>
+  <text x="254" y="64" font-size="12" fill="#fff" font-family="Arial">!</text>
+</svg>

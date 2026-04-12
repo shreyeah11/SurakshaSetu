@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#fffbeb"/>
+  <rect x="24" y="24" width="272" height="132" rx="14" fill="#fef3c7"/>
+  <rect x="44" y="50" width="232" height="78" rx="12" fill="#fff"/>
+  <text x="58" y="74" font-size="12" fill="#334155" font-family="Arial">From: support@amaz0n-help.com</text>
+  <text x="58" y="98" font-size="12" fill="#b45309" font-family="Arial">Check full sender domain</text>
+  <circle cx="252" cy="66" r="14" fill="#f59e0b"/>
+  <text x="247" y="71" font-size="14" fill="#fff" font-family="Arial">?</text>
+</svg>

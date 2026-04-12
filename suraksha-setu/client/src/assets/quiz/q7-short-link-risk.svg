@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#f0f9ff"/>
+  <rect x="24" y="24" width="272" height="132" rx="14" fill="#e0f2fe"/>
+  <rect x="44" y="50" width="232" height="78" rx="12" fill="#fff"/>
+  <text x="58" y="78" font-size="12" fill="#0f172a" font-family="Arial">bit.ly/a1b2C3</text>
+  <text x="58" y="102" font-size="12" fill="#0369a1" font-family="Arial">Destination hidden</text>
+  <path d="M228 80h26" stroke="#0ea5e9" stroke-width="4"/>
+  <path d="M248 72l10 8-10 8" fill="#0ea5e9"/>
+</svg>

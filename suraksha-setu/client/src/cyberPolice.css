@@ -1,0 +1,799 @@
+.cpPage {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    rgba(239, 246, 255, 0.98) 0%,
+    rgba(250, 245, 255, 0.95) 42%,
+    rgba(241, 249, 255, 0.98) 100%
+  );
+}
+
+/* Light “jail / checkbox” grid behind main content (title, Learn, etc.) */
+.cpJailGrid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 116, 139, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(100, 116, 139, 0.09) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px, 9px 9px, 9px 9px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  animation: cpJailShift 24s linear infinite;
+}
+
+@keyframes cpJailShift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 0, 9px 9px, 9px 9px;
+  }
+}
+
+.cpPage::before,
+.cpPage::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.cpPage::before {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.24), transparent 70%);
+}
+
+.cpPage::after {
+  width: 520px;
+  height: 520px;
+  right: -160px;
+  top: 180px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.22), transparent 72%);
+}
+
+.cpFloatLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cpShield {
+  position: absolute;
+  color: rgba(34, 211, 238, 0.28);
+  text-shadow: 0 8px 30px rgba(14, 165, 233, 0.16);
+  animation: cpShieldFloat 8s ease-in-out infinite;
+}
+
+.cpShield.cpShieldSvg {
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  width: 1em;
+  height: 1em;
+  text-shadow: none;
+}
+
+.cpShield.s1 { top: 8%; left: 4%; font-size: 42px; animation-delay: -0.8s; }
+.cpShield.s2 { top: 16%; right: 7%; font-size: 48px; animation-delay: -2.2s; }
+.cpShield.s3 { top: 40%; left: 2%; font-size: 36px; animation-delay: -1.4s; }
+.cpShield.s4 { top: 56%; right: 3%; font-size: 54px; animation-delay: -3.4s; }
+.cpShield.s5 { top: 74%; left: 8%; font-size: 40px; animation-delay: -4.1s; }
+.cpShield.s6 { top: 84%; right: 11%; font-size: 44px; animation-delay: -5s; }
+.cpShield.s7 { top: 10%; left: 42%; font-size: 32px; animation-delay: -1.1s; }
+.cpShield.s8 { top: 48%; right: 18%; font-size: 36px; animation-delay: -2.6s; }
+.cpShield.s9 { top: 66%; left: 22%; font-size: 40px; animation-delay: -3.9s; }
+.cpShield.s10 { top: 32%; left: 14%; font-size: 30px; animation-delay: -4.7s; }
+.cpShield.s11 { top: 76%; right: 28%; font-size: 34px; animation-delay: -5.3s; }
+.cpShield.s12 { top: 20%; right: 38%; font-size: 28px; animation-delay: -6.1s; }
+
+@keyframes cpShieldFloat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.18; }
+  50% { transform: translateY(-16px) rotate(4deg); opacity: 0.34; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.18; }
+}
+
+.cpWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 20px 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.cpFooter {
+  margin-top: 48px;
+  padding: 28px 22px 36px;
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.cpFooterTagline {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.cpFooterTagline strong {
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.cpFooterHelplines {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.cpFooterTitle {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.9);
+  text-align: center;
+}
+
+.cpFooterList {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(30, 41, 59, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.cpFooterList li {
+  margin-bottom: 10px;
+}
+
+.cpFooterLink {
+  color: #0369a1;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.cpFooterLink:hover {
+  text-decoration: underline;
+}
+
+.cpTop {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cpBack {
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.cpHead {
+  text-align: center;
+  margin-top: 4px;
+}
+
+.cpTitle {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.1rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #06b6d4, #6366f1, #9333ea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cpSub {
+  margin: 8px auto 0;
+  max-width: 760px;
+  font-weight: 650;
+  color: rgba(15, 23, 42, 0.68);
+}
+
+.cpSection {
+  margin-top: 34px;
+}
+
+.cpSecTitle {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.8rem, 4.6vw, 3.2rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cpSecSub {
+  text-align: center;
+  margin: 4px 0 0;
+  color: rgba(15, 23, 42, 0.65);
+  font-weight: 650;
+}
+
+.cpVideoGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cpVideoCard {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+  padding: 2px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.cpVideoCard:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(120deg, rgba(34, 211, 238, 0.22), rgba(168, 85, 247, 0.22));
+  box-shadow: 0 16px 30px rgba(76, 29, 149, 0.12);
+}
+
+.cpThumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.cpThumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.35));
+}
+
+.cpPlay {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 99px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  color: #ef4444;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.cpVTitle {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.2;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.cpVMeta {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.cpHelpGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+}
+
+.cpHelpCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 14px 14px;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(76, 29, 149, 0.08);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.cpHelpCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 14px 28px rgba(76, 29, 149, 0.14);
+}
+
+.cpHelpIcon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+.cpHelpTitle {
+  font-size: 21px;
+  font-weight: 850;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.cpHelpSub {
+  color: rgba(15, 23, 42, 0.62);
+  font-weight: 600;
+}
+
+.cpOnlineDot {
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: #22c55e;
+}
+
+.cpReport {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.cpPhoneMock {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #0b1630, #070f22);
+  border-radius: 36px;
+  padding: 12px 14px 14px;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 12px;
+  border: 2px solid rgba(15, 23, 42, 0.55);
+  box-shadow:
+    0 18px 44px rgba(15, 23, 42, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cpPhoneMock:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 24px 54px rgba(15, 23, 42, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cpPhoneViewport {
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 320px;
+  height: min(58vh, 560px);
+  max-height: 560px;
+  background: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-top: none;
+}
+
+.cpPhoneTrack {
+  width: 500%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cpPhoneScreen {
+  width: 20%;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  align-self: stretch;
+}
+
+.cpPhoneTop {
+  width: 38%;
+  max-width: 160px;
+  height: 22px;
+  border-radius: 0 0 16px 16px;
+  background: #040910;
+  margin: 0 auto 10px;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.cpPhoneStep {
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6, #a855f7);
+  background-size: 180% 180%;
+  color: white;
+  font-weight: 800;
+  display: grid;
+  gap: 4px;
+  flex-shrink: 0;
+  animation: cpPulseGrad 4.5s ease-in-out infinite;
+}
+
+@keyframes cpPulseGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cpPhoneStep span {
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.cpPhoneStep strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.cpBrowserChrome {
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #eceff3 0%, #dfe3e8 100%);
+  border-radius: 16px 16px 0 0;
+  padding: 6px 10px 8px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-bottom: none;
+}
+
+.cpBrowserStatus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+.cpBrowserIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cpSig {
+  width: 16px;
+  height: 9px;
+  border-radius: 2px;
+  border: 1.5px solid #0f172a;
+  position: relative;
+}
+.cpSig::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 5px;
+  background: #0f172a;
+  border-radius: 0 1px 1px 0;
+}
+
+.cpWifi {
+  width: 12px;
+  height: 9px;
+  border: 2px solid transparent;
+  border-top-color: #0f172a;
+  border-radius: 10px 10px 0 0;
+  transform: scale(0.85);
+}
+
+.cpBatt {
+  width: 20px;
+  height: 9px;
+  border: 1.5px solid #0f172a;
+  border-radius: 2px;
+  position: relative;
+}
+.cpBatt::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 5px;
+  background: #0f172a;
+  border-radius: 0 1px 1px 0;
+}
+
+.cpUrlBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.cpUrlLock {
+  flex-shrink: 0;
+  color: #15803d;
+  display: grid;
+  place-items: center;
+}
+
+.cpUrlText {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.cpPhoneImgWrap {
+  height: 100%;
+  min-height: 0;
+  border-radius: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #f1f5f9;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cpPhoneShot {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.cpPhoneSub {
+  margin: 10px 2px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(241, 245, 249, 0.9);
+  flex-shrink: 0;
+}
+
+.cpPhoneTip {
+  margin-top: 8px;
+  border-left: 3px solid #22d3ee;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(103, 232, 249, 0.18);
+  color: #dbeafe;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+.cpPhoneDots {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cpPhoneDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.cpPhoneDot.on {
+  width: 20px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6);
+}
+
+.cpPhoneDot:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.cpAutoBtn {
+  margin: 10px auto 0;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #dbeafe;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cpAutoBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cpSteps {
+  display: grid;
+  gap: 10px;
+}
+
+.cpStepRow {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  padding: 15px 16px;
+  display: grid;
+  grid-template-columns: 36px 1fr 26px;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.cpStepRow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 22px rgba(76, 29, 149, 0.1);
+}
+
+.cpStepRow.on {
+  border-color: rgba(139, 92, 246, 0.45);
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.24), rgba(139, 92, 246, 0.24), rgba(168, 85, 247, 0.2));
+  background-size: 200% 100%;
+  animation: cpActiveRow 4.6s ease-in-out infinite;
+}
+
+.cpStepRow.on::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 22%;
+  bottom: 0;
+  height: 4px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6, #a855f7);
+  background-size: 200% 100%;
+  animation: cpProgressRun 3.2s linear infinite;
+}
+
+@keyframes cpActiveRow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes cpProgressRun {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.95;
+  }
+  50% {
+    background-position: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.95;
+  }
+}
+
+.cpStepNum {
+  width: 30px;
+  height: 30px;
+  border-radius: 99px;
+  display: grid;
+  place-items: center;
+  background: rgba(139, 92, 246, 0.1);
+  font-weight: 900;
+}
+
+.cpStepBody {
+  min-width: 0;
+}
+
+.cpStepTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.9);
+  line-height: 1.25;
+}
+
+.cpStepSub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.66);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cpStepArrow {
+  font-size: 20px;
+  color: rgba(124, 58, 237, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cpJailGrid {
+    animation: none !important;
+  }
+  .cpPage,
+  .cpShield,
+  .cpPhoneStep,
+  .cpStepRow.on {
+    animation: none !important;
+  }
+  .cpVideoCard,
+  .cpHelpCard,
+  .cpPhoneMock,
+  .cpStepRow {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .cpVideoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cpHelpGrid {
+    grid-template-columns: 1fr;
+  }
+  .cpReport {
+    grid-template-columns: 1fr;
+  }
+  .cpPhoneMock {
+    max-width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .cpPhoneViewport {
+    height: min(48vh, 420px);
+    min-height: 260px;
+    max-height: 420px;
+  }
+}
+

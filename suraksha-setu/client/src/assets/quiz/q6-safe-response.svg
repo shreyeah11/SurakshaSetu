@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#fdf2f8"/>
+  <rect x="24" y="24" width="272" height="132" rx="14" fill="#fce7f3"/>
+  <rect x="52" y="48" width="216" height="84" rx="12" fill="#fff"/>
+  <rect x="66" y="68" width="88" height="44" rx="10" fill="#fecdd3"/>
+  <text x="79" y="95" font-size="12" fill="#9f1239" font-family="Arial">Ignore</text>
+  <rect x="166" y="68" width="88" height="44" rx="10" fill="#bbf7d0"/>
+  <text x="180" y="95" font-size="12" fill="#166534" font-family="Arial">Report</text>
+</svg>

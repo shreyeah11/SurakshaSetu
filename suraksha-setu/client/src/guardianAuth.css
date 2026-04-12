@@ -1,0 +1,382 @@
+/* SurakshaSetu — login / signup (split layout) */
+
+.gpAuthRoot {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.gpAuthSplit {
+  display: grid;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 900px) {
+  .gpAuthSplit {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    min-height: unset;
+    box-shadow: none;
+  }
+  .gpAuthLeft {
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+.gpAuthLeft {
+  padding: 32px 28px 40px;
+  background: linear-gradient(165deg, #e0f2fe 0%, #f0f9ff 42%, #dbeafe 100%);
+  border-right: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+@media (max-width: 900px) {
+  .gpAuthLeft {
+    border-right: 0;
+  }
+}
+
+.gpBrandRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.gpBrandLogo {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.2);
+  font-size: 22px;
+}
+
+.gpBrandName {
+  font-weight: 850;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #0c4a6e;
+}
+
+.gpBrandTag {
+  font-size: 0.82rem;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.gpHowTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0c4a6e;
+  margin: 0 0 14px;
+}
+
+.gpTipCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.gpTipTitle {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.gpTipBody {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.gpStepCard {
+  margin-top: 14px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.gpStepBadge {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.gpStepCard h3 {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.gpStepCard p {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.gpMockField {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  background: #f8fafc;
+}
+
+.gpAuthRight {
+  background: #fff;
+  padding: 36px 40px 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .gpAuthRight {
+    padding: 28px 22px 40px;
+  }
+}
+
+.gpHeroIcon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #bae6fd, #e0f2fe);
+  display: grid;
+  place-items: center;
+  color: #0369a1;
+}
+
+.gpWelcome {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.gpWelcome h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #0c4a6e;
+}
+
+.gpWelcome p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.gpToggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.gpToggle button {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 10px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+@media (max-width: 420px) {
+  .gpToggle button {
+    font-size: 0.72rem;
+    padding: 10px 8px;
+  }
+}
+
+.gpToggle button:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.gpToggleOn {
+  color: #fff;
+  background: linear-gradient(90deg, #7dd3fc, #38bdf8, #0ea5e9);
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.35);
+}
+
+.gpToggleOff {
+  color: #0369a1;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd !important;
+}
+
+.gpField {
+  margin-bottom: 18px;
+}
+
+.gpField label {
+  display: block;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #0c4a6e;
+  margin-bottom: 8px;
+}
+
+.gpFieldHint {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.gpInputWrap {
+  position: relative;
+}
+
+.gpInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 13px 14px;
+  font-size: 0.95rem;
+  background: #f8fafc;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.gpInput:focus {
+  outline: none;
+  border-color: #38bdf8;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+.gpEyeBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  color: #64748b;
+  border-radius: 8px;
+}
+
+.gpEyeBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.gpSubmit {
+  width: 100%;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 850;
+  color: #0c4a6e;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #7dd3fc, #38bdf8, #0ea5e9);
+  box-shadow: 0 14px 34px rgba(14, 165, 233, 0.32);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.gpSubmit:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.gpSubmit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.gpFooterLink {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.gpFooterLink button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.gpSecureBar {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  border-radius: 14px;
+  padding: 12px 16px;
+  background: #f0f9ff;
+}
+
+.gpErr {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.gpBack {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-weight: 800;
+  color: #0369a1;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.gpBack:hover {
+  text-decoration: underline;
+}
