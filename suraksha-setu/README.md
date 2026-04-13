@@ -49,3 +49,4 @@ npm run dev
 - Spot the Difference with wrong-answer sound
 - Cyber-themed modern UI with rounded cards and glowing accents
 - Express API with `/api/analyze` and MongoDB connection
+- Real-time Threat Awareness Module (SurakshaSetu Integration): Displays latest cyber fraud patterns, phishing alerts, and safety tips using dynamic data, helping users stay updated about current online threats and prevention methods
